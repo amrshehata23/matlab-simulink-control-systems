@@ -82,11 +82,17 @@ for index = 2:numberOfSteps
     integralError = max(min(integralError, integralMax), integralMin);
     integralTerm(index) = Ki * integralError;
 
-    % Derivative on measurement helps avoid derivative kick.
+   % Derivative on measurement helps avoid derivative kick.
+% MATLAB indexing starts at 1, so index - 2 would be 0 when index = 2.
+if index == 2
+    measurementDerivative = 0;
+else
     measurementDerivative = (output(index - 1) - output(index - 2)) / dt;
-    filteredDerivative = ...
-        derivativeFilterCoefficient * filteredDerivative + ...
-        (1 - derivativeFilterCoefficient) * measurementDerivative;
+end
+
+filteredDerivative = ...
+    derivativeFilterCoefficient * filteredDerivative + ...
+    (1 - derivativeFilterCoefficient) * measurementDerivative;
 
     derivativeTerm(index) = -Kd * filteredDerivative;
 
