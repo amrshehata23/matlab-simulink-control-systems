@@ -1,123 +1,192 @@
-# MATLAB Simulink Control Systems
+# MATLAB and Simulink Control Systems
 
 ## Overview
-This repository contains MATLAB and Simulink-based control system simulations.
 
-The project focuses on basic system dynamics, first-order system response, PID control and simulation-based analysis. It is designed as an engineering portfolio project for mechatronics, automation and control systems applications.
+This project demonstrates basic control systems concepts using MATLAB and Simulink-style modeling.
+
+It includes simulations of a first-order dynamic system and a PID-controlled system. The goal is to understand system response, controller behavior, and the effect of controller parameters on stability and performance.
+
+This project is relevant for mechatronics, automation, control engineering, automotive systems, and electrical engineering.
 
 ## Main Features
-- First-order system simulation using MATLAB
-- Step response analysis
-- Rise time and settling time calculation
-- PID controller simulation
-- Comparison between uncontrolled and controlled system behavior
-- Simulink model concept documentation
-- Engineering-focused plots and result interpretation
+
+- Simulates a first-order dynamic system
+- Analyzes step response behavior
+- Simulates a PID controller
+- Shows the influence of proportional, integral, and derivative control
+- Visualizes system response using MATLAB plots
+- Provides documentation for a possible Simulink model structure
+- Demonstrates basic control engineering workflow
 
 ## Technologies Used
+
 - MATLAB
-- Simulink
-- Control Systems
-- PID Control
-- System Dynamics
-- Step Response Analysis
-- Engineering Simulation
+- Simulink concepts
+- Control systems
+- PID control
+- Dynamic system simulation
+- Data visualization
 
 ## Repository Structure
 
 ```text
 matlab-simulink-control-systems/
 │
-├── README.md                           # Project documentation
-├── first_order_system_simulation.m      # First-order system response simulation
-├── pid_controller_simulation.m          # PID controller simulation
-├── simulink_model_description.md        # Simulink model concept
-└── requirements.md                      # Required software and toolboxes
-Project Purpose
+├── first_order_system_simulation.m
+├── pid_controller_simulation.m
+├── README.md
+├── requirements.md
+├── simulink_model_description.md
+└── screenshots/
+    ├── first_order_response.png
+    └── pid_controller_response.png
+```
 
-The purpose of this project is to show how MATLAB and Simulink can be used to analyze and simulate dynamic systems.
+## Files Description
 
-This project demonstrates:
+### `first_order_system_simulation.m`
 
-Mathematical modeling
-System response analysis
-Control system behavior
-PID controller effects
-Simulation-based engineering analysis
-First-Order System Simulation
+This script simulates the step response of a first-order dynamic system.
 
-The first simulation analyzes a basic first-order system.
+A first-order system is commonly used to describe simple physical systems such as:
 
-The transfer function is:
+- thermal systems
+- motor speed response
+- fluid level systems
+- simple electrical circuits
+- mechanical systems with damping
 
-G(s) = K / (tau*s + 1)
+The script defines the system parameters, calculates the response over time, and visualizes the result.
+
+### `pid_controller_simulation.m`
+
+This script simulates a PID-controlled system.
+
+A PID controller uses three control parts:
+
+- proportional control
+- integral control
+- derivative control
+
+The goal is to improve system response by reducing error, improving settling behavior, and reaching the desired setpoint.
+
+### `requirements.md`
+
+This file explains the software requirements for running the project.
+
+### `simulink_model_description.md`
+
+This file describes how the same control system idea can be represented in a Simulink model using blocks such as:
+
+- Step input
+- Transfer function
+- PID controller
+- Scope
+- Feedback loop
+
+## Control Systems Background
+
+### First-Order System
+
+A first-order system can be represented by the transfer function:
+
+```text
+G(s) = K / (T s + 1)
+```
 
 Where:
 
-K is the system gain
-tau is the time constant
-s is the Laplace variable
+- `K` is the system gain
+- `T` is the time constant
+- `s` is the Laplace variable
 
-The script calculates and visualizes:
+The time constant describes how quickly the system reacts to an input change.
 
-Step response
-Final value
-Rise time
-Settling time
-Steady-state error
-PID Controller Simulation
+### PID Controller
 
-The PID simulation compares system behavior with and without a controller.
+A PID controller can be represented as:
 
-A PID controller has the form:
-
-C(s) = Kp + Ki/s + Kd*s
+```text
+u(t) = Kp e(t) + Ki ∫e(t)dt + Kd de(t)/dt
+```
 
 Where:
 
-Kp is the proportional gain
-Ki is the integral gain
-Kd is the derivative gain
+- `Kp` is the proportional gain
+- `Ki` is the integral gain
+- `Kd` is the derivative gain
+- `e(t)` is the control error
+- `u(t)` is the controller output
 
-The goal is to improve system performance by reducing error and improving response behavior.
+## Example Output
 
-Simulink Concept
+After running the MATLAB scripts, the project can generate plots such as:
 
-A possible Simulink model can be built using:
+### First-Order System Response
 
-Step Input
-    ↓
-PID Controller
-    ↓
-Transfer Function
-    ↓
-Scope
+![First Order Response](screenshots/first_order_response.png)
 
-This model can be used to visualize how a controller changes the response of a dynamic system.
+### PID Controller Response
 
-What I Learned
-How to model dynamic systems in MATLAB
-How to simulate first-order system behavior
-How to calculate rise time and settling time
-How PID controllers affect system response
-How MATLAB and Simulink support engineering analysis
-How to document technical simulation projects
-Possible Applications
-Mechatronics systems
-Automation engineering
-Control systems
-Motor control
-Vehicle systems
-Robotics
-Embedded systems simulation
-Future Improvements
-Add real Simulink model screenshots
-Add .slx Simulink model files
-Add PID tuning comparison
-Add second-order system simulation
-Add motor speed control simulation
-Add closed-loop control analysis
-Add disturbance response analysis
-Project Status
+![PID Controller Response](screenshots/pid_controller_response.png)
 
-This project was created as a MATLAB and Simulink engineering portfolio project focused on control systems and system behavior analysis.
+## How to Run
+
+1. Open MATLAB.
+2. Open the project folder.
+3. Run the first-order system script:
+
+```matlab
+first_order_system_simulation
+```
+
+4. Run the PID controller script:
+
+```matlab
+pid_controller_simulation
+```
+
+5. Check the generated plots.
+
+## Skills Demonstrated
+
+- MATLAB scripting
+- Basic control systems understanding
+- First-order system simulation
+- PID controller simulation
+- Step response analysis
+- Plot generation and visualization
+- Simulink model planning
+- Engineering documentation
+
+## What I Learned
+
+- How to model simple dynamic systems
+- How time constants affect system response
+- How PID control improves system behavior
+- How to visualize system response in MATLAB
+- How MATLAB and Simulink concepts support mechatronics and control engineering tasks
+
+## Possible Applications
+
+- Mechatronics system control
+- Motor control basics
+- Temperature control systems
+- Automation technology
+- Automotive control systems
+- Embedded control preparation
+- Engineering simulation projects
+
+## Future Improvements
+
+- Add real Simulink `.slx` model files
+- Compare different PID parameters
+- Add overshoot, rise time, and settling time calculations
+- Add disturbance response simulation
+- Add motor speed control example
+- Add export of plots directly from MATLAB scripts
+- Add more control-system examples
+
+## Project Status
+
+This project was created as a MATLAB/Simulink engineering portfolio project focused on basic control systems, system response, and PID controller simulation.
